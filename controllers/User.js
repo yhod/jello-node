@@ -1,4 +1,4 @@
-const db = require("../database/models");
+const db = require('../database/models');
 const User = db.User;
 const Op = db.Sequelize.Op;
 
@@ -7,7 +7,7 @@ exports.create = (req, res) => {
     // Validate request
     if (!req.body.name) {
         res.status(400).send({
-            message: "Name can not be empty!"
+            message: 'Name can not be empty!',
         });
         return;
     }
@@ -18,7 +18,6 @@ exports.create = (req, res) => {
         email: req.body.email,
     };
 
-    // Save Tutorial in the database
     User.create(user)
         .then(data => {
             res.send(data);
@@ -26,7 +25,7 @@ exports.create = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while creating the User."
+                    err.message || 'Some error occurred while creating the User.',
             });
         });
 };
@@ -34,7 +33,7 @@ exports.create = (req, res) => {
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
     const name = req.query.name;
-    var condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null;
+    const condition = name ? {name: {[Op.iLike]: `%${name}%`}} : null;
 
     User.findAll({ where: condition })
         .then(data => {
@@ -43,7 +42,7 @@ exports.findAll = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while retrieving users."
+                    err.message || 'Some error occurred while retrieving users.',
             });
         });
 };
@@ -57,13 +56,13 @@ exports.findOne = (req, res) => {
                 res.send(data);
             } else {
                 res.status(404).send({
-                    message: `Cannot find User with id=${id}.`
+                    message: `Cannot find User with id=${id}.`,
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error retrieving User with id=" + id
+                message: 'Error retrieving User with id=' + id,
             });
         });
 };
