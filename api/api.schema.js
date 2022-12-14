@@ -46,6 +46,17 @@ module.exports = {
                     },
                 },
             },
+            Category_Create: {
+                type: 'object',
+                properties: {
+                    description: {
+                        type: 'string',
+                    },
+                    name: {
+                        type: 'string',
+                    },
+                },
+            },
             Product_Create: {
                 type: 'object',
                 properties: {
@@ -181,6 +192,49 @@ module.exports = {
                     },
                     404: {
                         description: 'Product not found',
+                    },
+                },
+            },
+        },
+        '/api/category': {
+            post: {
+                tags: ['Categories CRUD operations'],
+                description: 'Create category',
+                operationId: 'createCategory',
+                parameters: [],
+                requestBody: {
+                    content: {
+                        'application/json': {
+                            schema: {
+                                $ref: '#/components/schemas/Category_Create',
+                            },
+                        },
+                    },
+                },
+                responses: {
+                    201: {
+                        description: 'Category created successfully',
+                    },
+                    500: {
+                        description: 'Server error',
+                    },
+                },
+            },
+            get: {
+                tags: ['Categories CRUD operations'],
+                description: 'Get categories',
+                operationId: 'getCategories',
+                parameters: [],
+                responses: {
+                    200: {
+                        description: 'Categories Fetched',
+                        content: {
+                            'application/json': {
+                                schema: {
+                                    $ref: '#/components/schemas/Category',
+                                },
+                            },
+                        },
                     },
                 },
             },

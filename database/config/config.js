@@ -10,7 +10,7 @@ module.exports = {
     'test': {
         'username': 'simpleuser',
         'password': null,
-        'database': 'test_simple_app_db',
+        'database': 'simple_app_test_db',
         'host': '127.0.0.1',
         'dialect': 'postgres',
         logging: false,
