@@ -4,7 +4,7 @@ module.exports = {
     info: {
         title: 'Simple Inventory API',
         description: 'A simple Inventory API',
-        version: '1.0.0',
+        version: '2.0.0',
     },
     tags: [
         {name: 'Categories CRUD operations'},
