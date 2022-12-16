@@ -5,7 +5,7 @@ module.exports = {
         'database': 'simple_app_db',
         'host': '127.0.0.1',
         'dialect': 'postgres',
-        logging: false,
+        logging: true,
     },
     'test': {
         'username': 'simpleuser',
