@@ -14,7 +14,7 @@ exports.create = async (req, res) => {
     try {
         const {name, description} = req.body;
         const category = await Category.create({name, description});
-        res.send(category);
+        res.status(201).send(category);
     } catch(err) {
         res.status(500).send({
             message:
