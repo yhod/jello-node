@@ -22,7 +22,7 @@ describe('Test the product CRUD routes', () => {
                 price: 899,
             },
         );
-        expect(response.statusCode).toBe(200);
+        expect(response.statusCode).toBe(201);
         expect(response.body).toMatchObject({
             color: 'RED',
             category: null,
